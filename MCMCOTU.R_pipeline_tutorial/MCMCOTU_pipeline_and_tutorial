@@ -11,18 +11,76 @@ library(MCMC.OTU)
 library(ggplot2)
 library(vegan)
 
-#optional 
-library(ggfortify) #need this to make PCA plots using autoplot
-library(ggpubr)
-library(cowplot)
-library(vegetarian)
-library(colorRamps)
-library(RColorBrewer)
-library(MASS)
-source(Rmisc) #contains the summarySE function- a real lifesaver
-library(betapart)
-library(reshape2)
-
 #READ IN YOUR DATA FILE
 #dat<-read.csv(file="cmb_OTU_100.nr2nd.clstr.sample_revised.csv", sep=",", header=TRUE, row.names=1)
+
+###SUBSET DATA BY CORAL SPECIES### 
+
+ssid=subset(dat, species=="ssid")
+srad=subset(dat, species=="srad")
+pstr=subset(dat, species=="pstr")
+#write.csv(pstr, file="pstr.csv")
+
+##Identifier codes for my sample data
+#species= ssid, pstr, srad
+#site= numbers 1-11
+#type= low, mod, high
+#lat= placencia, sapodilla, dangriga, belize_city
+
+###RUNNING MCMCOTU#####
+
+###SSID ONLY###
+goods=purgeOutliers(ssid, count.columns=6:5089) #change input file to subset by species, you will want to edit this line to make sure you include how many columns you had!
+#note: only include columns that contain counts (no categorical variables)
+head(goods) #'goods' is the dataframe that contains all the non-outlier samples (outliers were removed by purgeOutliers)
+
+# what is the proportion of samples with data for these OTUs?
+apply(goods[,6:length(goods[1,])],2,function(x){sum(x>0)/length(x)})
+
+# what percentage of global total counts each OTU represents?
+apply(goods[,6:length(goods[1,])],2,function(x){sum(x)/sum(goods[,6:length(goods[1,])])})
+
+# stacking the data; adjust otu.columns and condition.columns values for your data
+gss=otuStack(goods,count.columns=c(6:length(goods[1,])),condition.columns=c(1:5))
+
+head(gss)
+
+##We have now removed outlier samples and stacked data in the proper format for MCMCOTU
+
+###A MCMCOTU RUN###
+
+mm=mcmc.otu(
+	fixed="type", #type in this case is a categorical variable. Maybe you want 'site', 'latitude', 'reef', 'country', 'speies', or 'day' instead
+	data=gss,
+	nitt=56000,thin=50,burnin=50000 # a long MCMC chain to improve modeling of rare OTUs
+	)
+#plot(mm)	
+	# selecting the OTUs that were modeled reliably
+# (OTUs that are too rare for confident parameter estimates are discarded) 
+acpass=otuByAutocorr(mm,gss)
+acpass
+
+# calculating differences and p-values between all pairs of factor combinations
+smm0=OTUsummary(mm,gss,otus=acpass,summ.plot=FALSE) 
+
+# adjusting p-values for multiple comparisons:
+smmA=padjustOTU(smm0)
+head(smmA)
+
+# significant OTUs at FDR<0.05:
+sigs=signifOTU(smmA)
+sigs #OTUS that are significantly different between 'types' or whatever variable you put in the model
+
+# plotting the significant ones
+smm1=OTUsummary(mm,gss,otus=sigs)
+
+head(gss)
+gss$count=gss$count+1
+smmA$otuWise[sigs]
+# table of log10-fold changes and p-values, this tells you what was signficant in the model. 
+
+##You can adjust these models however you like to meet your needs. This is a simple rundown of how MCMCOTU works. 
+#See attached R tutorials on principal componenet analysis and other data visualization techniques for more information. 
+
+
 
