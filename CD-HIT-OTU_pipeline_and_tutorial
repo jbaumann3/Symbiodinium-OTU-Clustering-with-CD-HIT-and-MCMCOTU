@@ -1,0 +1,107 @@
+#################### TUTORIAL FOR Illumina Miseq data (paired end)#################
+#this tutorial will allow you to manipulate Illumina Miseq symbiodinium data in bash/linux/terminal, run CD-Hit-OTU and prepare data for MCMCOTU in R. 
+#This pipeline was created by the Matz lab at UT-Austin. I am simply providing a redundant and updated tutorial that will hopefully make your life easier. To see original docs, check http://www.bio.utexas.edu/research/matz_lab/matzlab/Methods.html
+
+#When your files come back from sequencing they should all be in a directory somewhere. Ideally, you have named them with some code that you understand. I recommend using something short but informative.
+# I use a code like this: S16l: First letter= species name (S. siderea), numbers= sample # (all of my samples have unique numbers), 2nd letter= reef zone (you can specify site, latitude, reef zone, day, whatever you want)
+#The sequencer will likely add something like _1 or _R1 and _2 or _R2 to the end of files. This tells you if it is a forward or reverse read (R1=forward, R2=reverse). 
+
+#MAIN PIPELINE
+1. Cleaning Sequence Reads
+	a.	Download all raw .fastq files generated from the HTSF using SFTP or SCP 
+	b.  add .fastq to the end of each file (optional): 
+		for f in *; do mv "$f" "$f.fastq"; done #adds .fastq to all files in directory
+	c. Cut bases from the first line so that you only have primer sequences (Files come off the sequencer w/ 4 degenerate bases and then the primers at UNC, so need to trim those off)
+		module load fastx_toolkit #loads the module fastx_toolkit for your session. If you are working on your own computer you may need to download this. If your supercomputer doesn't have the program you will need to download and install 
+		fastx_trimmer -Q33 -f 5 -i filename ###-Q33 makes it uses quality scores type 33, which is what you want, -f 5 =cut first 4 bases (keep bases starting at 5, you can change this to whatever you want, -i filename =input filename
+		
+		TO AUTOMATE THIS PROCESS ACROSS ALL FILES IN A DIRECTORY USE A SIMPLE FOR LOOP (below)
+		for file in *.fastq; do fastx_trimmer -Q33 -f 5 -i $file -o $file.trim; echo $file; done
+	d. Cut the F and R primers (DO NOT NEED TO DO THIS FOR ILLUMINA just for 454)
+		#F primer= GTGAATTGCAGAACTCCGTG (R1 starts with F primer)
+		#R primer= CCTCCGCTTACTTATATGCTT (R2 starts with R primer)
+			for file in *1.fastq.trim; do fastx_trimmer -Q33 -f 21 -i $file -o $file.noprim; echo $file; done #For R1
+
+			for file in *2.fastq.trim; do fastx_trimmer -Q33 -f 22 -i $file -o $file.noprim; echo $file; done #For R2ll
+			
+2. Download CD HIT OTU 
+		wget http://weizhongli-lab.org/cd-hit-otu/cd-hit-otu-illumina-0.0.1-2011-1004.tar.gzw #wget calls a file from a website and downloads it
+	
+		gunzip cd-hit-otu- (use tab complete) #unzip
+		tar -xvf cd (tab complete) #un tar ball (decompress)
+		#creates cd hit directory
+		cd cd-hit-otu/cd-hit-otu-illumina-0.0.1/
+		cd cd-hit
+		make #makes a bunch of files inside the directory (so I can use the cd-hit-otu functions)
+		ll #see list of stuff inside cd-hit
+
+3. Identify OTUs using CD-Hit-OTU
+	a. Change the header for each sample file so that they are unique (not all the same). If you head(file) you will see that all files have an @HWI in them. We want that to be @samplename
+	#NOTE: Make sure the R1 and R2 of each sample have the same sample name after the @ symbol. This allows us to line them up later. Keep the R1 and R2 out of it. 
+	sed 's:@HWI:@samplename(minues the 1 and 2)_:' <original file name> original file name_named_.fastq #removes the HWI and adds sample name for 1 individual file
+	
+	#To automate across all files: Use the python script in this GITHUB folder called "rename.py"--the code for rename.py is included below. You will need to edit it for your own file naming conventions
+		#!/usr/bin/env python
+		import os, glob
+
+		file_info = []
+		for line in os.listdir('/proj/kdcastil/users/ging/first_4_bases_trimmed/'):
+			#print line
+			if line.endswith('.trim'):
+				name = line[:6]
+				if (name.endswith('1') or name.endswith('2')):
+					name = name[:-1]
+				new_list = []
+				new_list.append(line)
+				new_list.append(name)
+				file_info.append(new_list)
+		#print file_info
+
+		for line in file_info:
+			cmd = "sed 's:@HWI:@"+line[1]+"_:' <"+line[0]+"> "+line[0]+".named"
+			os.system(cmd)
+	
+	#TO make the python script:
+		moduleload python #loads python
+		emacs rename.py #opens a text editor and names the resulting file rename.py (this is how you will edit any script you write)
+			#edit the script to your liking and then save using ctrl+x and then ctrl+s to quit: crtl+x then ctrl+c
+			
+	#RUN the script
+	python rename.py #runs the script (you can use bsub to run it in the background but it should be pretty fast)
+	#note: as the script is written it will keep the orginal files with @HWI and make new files that are named properly. These files will end in .named. Feel free to move them all to a new directory for easier access
+	b. Check that renaming worked by heading or tailing a few files--> head(filename) or tail(filename) You should see @filename instead of @HWI
+	
+	c. Dealing with length differences in R1 and R2 files
+		#If R1 and R2 files of the same sample are not exactly the same length there will be issues and CD-HIT-OTU will not run properly. 
+		#TO check this use 'grep'
+		grep '@' filename_R1 | wc -l #how many total reads in all samples, do this for R1 and R2 of several samples. If the R1=R2 then great. If not, do the following:
+	
+		If R1=R2 in length: Download and use the script rePair.pl (written by Mischa Matz or UT Austin) to fix the problem (attached to this github project)
+			#NOTE: We wrote a code to automate rePair.pl across all samples, that is also avaialbe and is called "run_matts_code.py" --Both need to be edited to deal with your directories and sample naming conventions but will otherwise work without altering
+		To run 'rePair.pl' you need perl. 
+		moduleload perl
+		
+		#When you run 'rePair.pl' or 'run_matts_code.py' it will spit out 3 files for each individual sample: R1_filename, R2_filename, Unp_filename. R1 and R2 files will be of same or almost same length (so you can run cd_hit on them)
+			-Check R1 and R2 and make sure they are same length. Unp_ contains all unpaired reads. They have been trimmed out and are lost :(	
+	
+	d. Concatenate all R1 and R2 files together to make a master R1 and master R2 (forward and reverse). 
+		#NOTE: ALL R1 files must be same length as their R2 pair in order for these files to be used by CD-HIT-OTU!
+		cat *1_named_.fastq.trim >AlltrimR1.fastq
+		cat *2_named_.fastq.trim > AlltrimR2.fastq
+		grep '@' Alltrim.fastq | wc -l #how many total reads in all samples
+		#R1 8664257
+		#R2 9883473
+	
+	e. RUN CD-HIT-OTU on your data!!!!
+		moduleload perl
+	
+		perl /proj/kdcastil/users/ging/cd-hit-otu-illumina-0.0.1/cd-hit-otu-all-pair.pl -i AlltrimR1.fastq, AlltrimR2.fastq -o OTU-dir-99 -t 0.9,0.9 -c 0.99 -e 0.001 ##NOTE: you will want to change the directory and filenames here to match your own!. 
+		# -i = input files (your R1 and R2 cat files, seperated by a comma and a SPACE), -o the name of the output diretory that will be created., -t tails (0.9,0.9 NO SPACE is default, but you can mess with it if you wish), -c cluster by % (99% similarity, this can be changed to any % that you wish--I used 100% in my final analysis), -e error (default is 0.001, just leave as is)
+		#NOTE: Running CD-HIT takes a while. It will give error messages if CD-HIT is not properly unpacked (make sure to 'make' all the directories within the CD-HIT directory). There are other errors as well. Consider the documentation on the CD-HIT-OTU website. 
+	f. Cluster into OTUs
+		#USE the perl script (written by Mischa Matz) 'clstr_sample_count_matrix.pl' (provided in this GITHUB project)
+		#Cd into you -o folder form CD-HIT
+		perl clstr_sample_count_matrix.pl _ OTU.nr2nd.clstr
+		
+		# The resulting file is ready for use with MCMCOTU in R. Alternatively, you can use QIIME to do analysis instead. To use Qiime you should contact your IT department and not use CD-HIT for clustering. 
+		#Move your OTU cluster files to desktop for use with R
