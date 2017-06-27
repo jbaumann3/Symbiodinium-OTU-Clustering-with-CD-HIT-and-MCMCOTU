@@ -1,0 +1,29 @@
+###Brief BASH / Linux / MAC command line and terminal Tutorial 
+
+#NOTE: If you ever need to know how to do something try this: Google "BASH the name of your problem" -it usually gives you something useful 
+
+pwd #check present working directory
+cd .. #go up a directory-- can be paired like this --> cd ../../.. each .. move you up 1 level so if you are in a directory inside of a directory inside of a directory you can back out to your home directory all at once if you want
+
+cd /dirname #allows you to move directly to a directory that you want. You have to use a full path like this: cd /proj/kdcastil/users/ging/test will get me into a directory where I can test code without messing up any of my real data :)
+
+ll #lists whats in the directory in a long list (2 columns). If you don't have many files in a directory this is great
+
+ls #lists what is in the directory in a short list (many columns)
+
+mkdir dirname #make a folder in the directory dirname=whatever you want the directory to be called
+
+mv filename edited filename #rename a file or directory (using the move function)
+
+mv filename newdirectory #move a file to a new directory
+
+##NOTE: If you want to move a directory (not just one file, but many) to a new directory you must use -r in your code
+#ex: mv -r filename newdirectory
+
+crtl+c #kills any job you are running. Don't forget about this feature! Sometime you'll mess up and do something that can crash the supercomputer or your own computer. ctrl+c is your failsafe
+
+cp filename directoryname	#allows you to copy a file to a new directory. You can add -r to copy a directory (same as with the mv function above)
+
+rm and rm -r followed by filename or directory name #DELETE files or directories (with -r). ONLY DO THIS IF YOU KNOW YOU DON'T WANT SOMETHING. There is no undo in BASH. 
+
+bsub jobname #this is how you submit a job to the supercomputer que. It will run in the background while you do other stuff. Use this for large jobs, like a script that runs over a bunch of files. There are examples below
