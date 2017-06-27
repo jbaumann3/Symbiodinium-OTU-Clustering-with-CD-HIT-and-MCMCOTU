@@ -96,7 +96,7 @@
 		moduleload perl
 	
 		perl /proj/kdcastil/users/ging/cd-hit-otu-illumina-0.0.1/cd-hit-otu-all-pair.pl -i AlltrimR1.fastq, AlltrimR2.fastq -o OTU-dir-99 -t 0.9,0.9 -c 0.99 -e 0.001 ##NOTE: you will want to change the directory and filenames here to match your own!. 
-		# -i = input files (your R1 and R2 cat files, seperated by a comma and a SPACE), -o the name of the output diretory that will be created., -t tails (0.9,0.9 NO SPACE is default, but you can mess with it if you wish), -c cluster by % (99% similarity, this can be changed to any % that you wish--I used 100% in my final analysis), -e error (default is 0.001, just leave as is)
+		# -i = input files (your R1 and R2 cat files, seperated by a comma and a SPACE), -o the name of the output diretory that will be created., -t tails (0.9,0.9 NO SPACE is default, but you can mess with it if you wish), -c cluster by % (99% similarity, this can be changed to any % that you wish--I used 100% in my final analysis), -e error (report error of extaq polymerase which is 0.001)
 		#NOTE: Running CD-HIT takes a while. It will give error messages if CD-HIT is not properly unpacked (make sure to 'make' all the directories within the CD-HIT directory). There are other errors as well. Consider the documentation on the CD-HIT-OTU website. 
 	f. Cluster into OTUs
 		#USE the perl script (written by Mischa Matz) 'clstr_sample_count_matrix.pl' (provided in this GITHUB project)
