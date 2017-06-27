@@ -1,0 +1,80 @@
+###OTU RELATIVE ABUNDANCE PLOTS###
+
+### STACKED BAR CHARTS (the prettier alternative to pie charts) ###
+
+#NOTE: If you insist on pie charts, this is not the tutorial for you, but here is a link to an awesome one: http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization
+
+
+
+##RELATIVE ABUNDANCE STACKED BARS (rel abund for each individual)
+
+library(vegetarian)
+library(colorRamps)
+library(RColorBrewer)
+
+##READ IN DATA
+dat<-read.csv(file="cmb_OTU_100.nr2nd.clstr.sample_revised_pool_posR_sigP01_TRIM.csv", sep=",", header=TRUE, row.names=1)#Pooled by Positive R^2, sig P (<0.01)
+
+#MAKE SURE IT LOOKS RIGHT
+summary(dat)
+str(dat)
+colnames(dat)
+head(dat)
+
+#OK, let's do this!
+
+dat2<- as.matrix(dat[,8:17]) #make a matrix out of the columns in your data frame that contain count data 
+head(dat2)
+
+##get relative abundance data for that matrix above. 
+dat2_freq<-normalize.rows(dat2)
+write.csv(dat2_freq, file= "test_pool.csv") #gives rel abundance (%) for each OTU in each sample. Add conditions and OTU names in excel and read back in
+#NOTE: if you are more comfortable manipulating data in R then you can just cbind your conditional variables back on. I just tihnk it is easier for new people to do it this way. 
+
+abund<-read.csv(file="rel_abnd_by_sample_pool_sigpposR.csv", sep=",", header=TRUE, row.names=1) #This is the file I need to work with
+head(abund)
+##Added columns that combined site, type, lat with sample for visualization purposes
+
+#stacking the data; adjust otu.columns and condition.columns values for your data
+gstack=otuStack(abund,count.columns=c(9:length(abund[1,])),condition.columns=c(1:8))
+head(gstack)
+gsss=(subset(gstack[1:1340,])) #remove the SUMM rows at the bottom
+head(gsss)
+#write.csv(gsss, file="gsss1.csv") #this is the dataframe that contains our relative abundnace data and conditional variables.Formatted for making our grpahs and doing stats
+
+
+####REL ABUND STATS####
+##ANOVA BY SPECIES 
+abundsp=summarySE(gsss, measurevar="count", groupvars=c("species"), na.rm=T)
+print(abundsp)
+aov1=aov(count~species, data=abundsp)
+summary(aov1)
+TukeyHSD(aov1)
+
+###RELATIVE ABUNDANCE FIGURES###
+
+##ALL SAMPLES REL ABUND##
+all_fig<-ggplot(gsss, aes(x=site_sample, y=count, fill=otu))+
+	geom_bar(stat="identity", color='black')+
+	guides(fill=guide_legend(override.aes=list(colour=NA)))+
+	theme(axis.text.x= element_text(angle=90, size=5))+
+	xlab("OTU")+
+	ylab("Relative Abundance 
+		of each OTU (%)")
+
+a<-all_fig+scale_fill_manual(values=c("#999999", "#E69F00", "#009E73", "#F0E442", "#56B4E9", "#0072B2", "#D55E00", "#CC79A7", "#6600FF", "#993300"))
+a
+
+gssid=subset(gsss, species=="ssid")
+head(gssid)
+
+ssid_fig<-ggplot(gssid, aes(x=type_sample, y=count, fill=otu))+
+	geom_bar(stat="identity", color='black')+
+	guides(fill=guide_legend(override.aes=list(colour=NA)))+
+	theme(axis.text.x= element_text(angle=90, size=10))+
+	xlab("OTU")+
+	ylab("Relative Abundance 
+		of each OTU (%)")
+b<-ssid_fig+scale_fill_manual(values=c("#999999", "#E69F00", "#009E73", "#F0E442", "#56B4E9", "#0072B2", "#D55E00", "#CC79A7", "#6600FF", "#993300"))
+b
+
