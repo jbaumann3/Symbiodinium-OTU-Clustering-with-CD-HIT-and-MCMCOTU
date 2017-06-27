@@ -1,0 +1,135 @@
+,Sample,species,site,type,lat,illumina_run,otu_diversity,C1.I,B1.I,C1.II,C1.III,D1a,B1.II,G3,A4a,B.BG,C3
+p161pm,p161pm,pstr,Placencia 2,2-Mod,3-Placencia,1,3,2,21731,0,0,105,0,0,0,0,0
+p163pm,p163pm,pstr,Placencia 2,2-Mod,3-Placencia,1,4,847,12408,0,197,1,0,0,0,0,0
+p164pm,p164pm,pstr,Placencia 2,2-Mod,3-Placencia,1,4,12657,8529,4,1621,0,0,0,0,0,0
+p165pm,p165pm,pstr,Placencia 2,2-Mod,3-Placencia,1,4,160,8425,1,560,0,0,0,0,0,0
+p167pm,p167pm,pstr,Placencia 2,2-Mod,3-Placencia,1,4,3,5,0,2,1,0,0,0,0,0
+p169pm,p169pm,pstr,Placencia 2,2-Mod,3-Placencia,1,4,5553,3,0,29764,1,0,0,0,0,0
+p203pe,p203pe,pstr,Placencia 3,3-High,3-Placencia,1,6,29843,24,13,499,21,0,0,1,0,0
+p204pe,p204pe,pstr,Placencia 3,3-High,3-Placencia,1,5,283,14074,19,41,0,0,0,0,2,0
+p205pe,p205pe,pstr,Placencia 3,3-High,3-Placencia,1,4,1201,12900,176,1272,0,0,0,0,0,0
+p206pe,p206pe,pstr,Placencia 3,3-High,3-Placencia,1,6,552,15314,6,427,1,0,0,0,2758,0
+p210pe,p210pe,pstr,Placencia 3,3-High,3-Placencia,1,7,2757,7997,66437,156,691,9,0,694,0,0
+p312sm,p312sm,pstr,Sapodilla 2,2-Mod,4-Sapodilla,1,6,26703,1857,12,723,6474,110,0,0,0,0
+p313sm,p313sm,pstr,Sapodilla 2,2-Mod,4-Sapodilla,1,5,17662,98,1,479,1607,0,0,0,0,0
+p315sm,p315sm,pstr,Sapodilla 2,2-Mod,4-Sapodilla,1,5,2571,43,0,92,592,11,0,0,0,0
+p316sm,p316sm,pstr,Sapodilla 2,2-Mod,4-Sapodilla,1,3,29,5825,0,6,0,0,0,0,0,0
+p317sm,p317sm,pstr,Sapodilla 2,2-Mod,4-Sapodilla,1,5,1356,23621,33,51,0,1,0,0,0,0
+p319sm,p319sm,pstr,Sapodilla 2,2-Mod,4-Sapodilla,1,3,37,18039,0,0,0,1,0,0,0,0
+p81pl,p81pl,pstr,Placencia 1,1-Low,3-Placencia,1,6,1907,36,107514,5,0,2,0,30,0,0
+p84pl,p84pl,pstr,Placencia 1,1-Low,3-Placencia,1,8,8766,27,89710,152,36,1,0,18,1,0
+p85pl,p85pl,pstr,Placencia 1,1-Low,3-Placencia,1,4,3,4756,0,0,0,1,3,0,0,0
+p86pl,p86pl,pstr,Placencia 1,1-Low,3-Placencia,1,5,627,34,24248,2,0,4,0,0,0,0
+p89pl,p89pl,pstr,Placencia 1,1-Low,3-Placencia,1,3,2,56372,0,0,0,1,0,0,0,0
+r101pl,r101pl,srad,Placencia 1,1-Low,3-Placencia,1,6,18,49683,4,11,7,55,0,0,0,0
+r104pl,r104pl,srad,Placencia 1,1-Low,3-Placencia,1,5,13,16548,24,6,0,9457,0,0,0,0
+r105pl,r105pl,srad,Placencia 1,1-Low,3-Placencia,1,6,6,93985,13,4,0,2,0,0,0,1143
+r107pl,r107pl,srad,Placencia 1,1-Low,3-Placencia,1,6,4,63865,9,4,33,1,0,0,0,0
+r108pl,r108pl,srad,Placencia 1,1-Low,3-Placencia,1,6,10654,18,14,13380,6,0,0,281,0,0
+r109pl,r109pl,srad,Placencia 1,1-Low,3-Placencia,1,5,19234,8,1,384,6,0,0,0,0,0
+r110pl,r110pl,srad,Placencia 1,1-Low,3-Placencia,1,4,14255,1,0,308,6,0,0,0,0,0
+r191pm,r191pm,srad,Placencia 2,2-Mod,3-Placencia,1,6,199,21141,8,25,3,12,0,0,0,0
+r192pm,r192pm,srad,Placencia 2,2-Mod,3-Placencia,1,5,118,24108,1,42,0,10,0,0,0,0
+r193pm,r193pm,srad,Placencia 2,2-Mod,3-Placencia,1,5,672,41,16954,89,1,0,0,0,0,0
+r194pm,r194pm,srad,Placencia 2,2-Mod,3-Placencia,1,6,381,33498,85,12,0,11,0,8,0,0
+r197pm,r197pm,srad,Placencia 2,2-Mod,3-Placencia,1,4,43,20839,7,0,0,19,0,0,0,0
+r198pm,r198pm,srad,Placencia 2,2-Mod,3-Placencia,1,5,433,2943,17804,25,0,1,0,0,0,0
+r199pm,r199pm,srad,Placencia 2,2-Mod,3-Placencia,1,6,1052,16676,64,78,192,6,0,0,0,0
+r221pe,r221pe,srad,Placencia 3,3-High,3-Placencia,1,7,635,35196,8,16,222,17,0,0,1,0
+r223pe,r223pe,srad,Placencia 3,3-High,3-Placencia,1,5,17704,16,1,321,16,0,0,0,0,0
+r224pe,r224pe,srad,Placencia 3,3-High,3-Placencia,1,6,617,11328,1,29,34,169,0,0,0,0
+r225pe,r225pe,srad,Placencia 3,3-High,3-Placencia,1,4,1,6002,0,0,0,1,2,0,0,0
+r226pe,r226pe,srad,Placencia 3,3-High,3-Placencia,1,6,194,16964,0,4,16,5,2,0,0,0
+r227pe,r227pe,srad,Placencia 3,3-High,3-Placencia,1,6,246,14782,0,16,90,6,7517,0,0,0
+r228Bp,r228Bp,srad,Placencia 3,3-High,3-Placencia,1,5,167,17250,0,5,53,12000,0,0,0,0
+r228pe,r228pe,srad,Placencia 3,3-High,3-Placencia,1,6,143,16687,0,1,42,11533,1,0,0,0
+r229pe,r229pe,srad,Placencia 3,3-High,3-Placencia,1,5,122,32563,0,0,38,24,1,0,0,0
+r401se,r401se,srad,Sapodilla 3,3-High,4-Sapodilla,1,4,1038,88148,0,24,0,284,0,0,0,0
+r403se,r403se,srad,Sapodilla 3,3-High,4-Sapodilla,1,4,1403,123302,0,62,0,45,0,0,0,0
+r404se,r404se,srad,Sapodilla 3,3-High,4-Sapodilla,1,5,1795,50296,1,26,0,8,0,0,0,0
+r405se,r405se,srad,Sapodilla 3,3-High,4-Sapodilla,1,5,5529,13292,0,130,0,8469,0,0,1,0
+r407se,r407se,srad,Sapodilla 3,3-High,4-Sapodilla,1,4,3,7056,0,1,0,2,0,0,0,0
+r408se,r408se,srad,Sapodilla 3,3-High,4-Sapodilla,1,4,80,15263,0,49,0,9776,0,0,0,0
+s111pl,s111pl,ssid,Placencia 1,1-Low,3-Placencia,1,4,28680,0,2,556,1,0,0,0,0,0
+s112pl,s112pl,ssid,Placencia 1,1-Low,3-Placencia,1,2,11504,0,0,207,0,0,0,0,0,0
+s115pl,s115pl,ssid,Placencia 1,1-Low,3-Placencia,1,5,48012,8,35,10039,1,0,0,0,0,0
+s117pl,s117pl,ssid,Placencia 1,1-Low,3-Placencia,1,5,20452,379,12,968,1,0,0,0,0,0
+s119pl,s119pl,ssid,Placencia 1,1-Low,3-Placencia,1,3,18,2,0,1,0,0,0,0,0,0
+s11dl,s11dl,ssid,Placencia 1,1-Low,3-Placencia,1,5,311,6,1,1901,4,0,0,0,0,0
+s120pl,s120pl,ssid,Dangriga 1,1-Low,2-Dangriga,2,6,10,8878,2,4,0,2,0,1,0,0
+s12dl,s12dl,ssid,Placencia 1,1-Low,3-Placencia,1,4,968,0,2,407,27,0,0,0,0,0
+s131pl,s131pl,ssid,Dangriga 1,1-Low,2-Dangriga,2,5,108,17,13,20,14,0,0,0,0,0
+s13dl,s13dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,5,432,24,6,11,53,0,0,0,0,0
+s14dl,s14dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,4,56,11,0,899,5,0,0,0,0,0
+s15dl,s15dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,4,264,0,1,4,1,0,0,0,0,0
+s16dl,s16dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,4,954,1,1,99,0,0,0,0,0,0
+s17dl,s17dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,3,28,1,0,704,0,0,0,0,0,0
+s181pm,s181pm,ssid,Placencia 2,2-Mod,3-Placencia,1,5,979,6,0,12590,2,0,0,2,0,0
+s184pm,s184pm,ssid,Placencia 2,2-Mod,3-Placencia,1,3,12072,0,0,214,204,0,0,0,0,0
+s185pm,s185pm,ssid,Placencia 2,2-Mod,3-Placencia,1,5,27571,1,2,578,1,0,0,0,0,0
+s186pm,s186pm,ssid,Placencia 2,2-Mod,3-Placencia,1,5,10098,6,1,3255,1,0,0,0,0,0
+s187pm,s187pm,ssid,Placencia 2,2-Mod,3-Placencia,1,4,21390,3,0,439,1,0,0,0,0,0
+s188pm,s188pm,ssid,Placencia 2,2-Mod,3-Placencia,1,5,8115,4,1,4087,1,0,0,0,0,0
+s18dl,s18dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,5,1109,86,51,3,91,0,0,0,0,0
+s19dl,s19dl,ssid,Dangriga 1,1-Low,2-Dangriga,2,5,16,1,0,1902,315,0,0,1,0,0
+s231pe,s231pe,ssid,Placencia 3,3-High,3-Placencia,1,3,78419,0,34,1847,0,0,0,0,0,0
+s232pe,s232pe,ssid,Placencia 3,3-High,3-Placencia,1,4,170259,1,25,4022,0,0,0,0,0,0
+s233pe,s233pe,ssid,Placencia 3,3-High,3-Placencia,1,4,131039,13,12,2422,0,0,0,0,0,0
+s235pe,s235pe,ssid,Placencia 3,3-High,3-Placencia,1,5,90268,11,8,1609,1,0,0,0,0,0
+s241pe,s241pe,ssid,Placencia 3,3-High,3-Placencia,1,6,149938,6,5,3652,12,2,0,0,0,0
+s243pe,s243pe,ssid,Placencia 3,3-High,3-Placencia,1,8,124,167,4,70,87,2,0,2,3,0
+s244Bp,s244Bp,ssid,Placencia 3,3-High,3-Placencia,1,5,9020,4,1,202,0,1,0,0,0,0
+s244pe,s244pe,ssid,Placencia 3,3-High,3-Placencia,1,8,1695,3307,24,1965,25,2,0,25,158,0
+s245pe,s245pe,ssid,Placencia 3,3-High,3-Placencia,1,5,35109,8,1,647,1,0,0,0,0,0
+s301sm,s301sm,ssid,Sapodilla 2,2-Mod,4-Sapodilla,1,6,55817,89,1,1155,12,0,0,0,2,0
+s304sm,s304sm,ssid,Sapodilla 2,2-Mod,4-Sapodilla,1,7,27979,51,1,5688,79,1,0,1,0,0
+s306sm,s306sm,ssid,Sapodilla 2,2-Mod,4-Sapodilla,1,7,31764,9,3,443,31,0,0,8,1,0
+s307sm,s307sm,ssid,Sapodilla 2,2-Mod,4-Sapodilla,1,7,549,64,5,19918,15067,1,0,3692,0,0
+s309sm,s309sm,ssid,Sapodilla 2,2-Mod,4-Sapodilla,1,7,65383,8,3,1335,64,1,0,1,0,0
+s310sm,s310sm,ssid,Sapodilla 2,2-Mod,4-Sapodilla,1,4,399,30,0,7,12903,0,0,0,0,0
+s321sl,s321sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,7,18395,313,2,325,5,4,0,0,1,0
+s322sl,s322sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,6,14438,212,1,4730,9,3,0,0,0,0
+s323sl,s323sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,6,260,221,0,44,4796,0,0,4,1,0
+s324sl,s324sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,5,72,21,0,46,37100,2,0,0,0,0
+s325sl,s325sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,7,549,151,1,453,12379,0,0,16,15,0
+s326sl,s326sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,5,649,12,0,18,6491,5,0,0,0,0
+s327sl,s327sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,8,32551,36,2,646,45,4,0,1,3,0
+s329sl,s329sl,ssid,Sapodilla 1,1-Low,4-Sapodilla,1,7,810,199,9,105,3495,0,0,13,9,0
+s372se,s372se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,4,14132,5,0,254,1,0,0,0,0,0
+s373se,s373se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,5,137121,9,3,2416,1,0,0,0,0,0
+s374se,s374se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,5,103624,0,5,1902,91,1,0,0,0,0
+s375se,s375se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,4,45898,2,1,823,0,0,0,0,0,0
+s376se,s376se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,4,19041,82,1,337,0,0,0,0,0,0
+s377se,s377se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,4,51929,33,4,939,0,0,0,0,0,0
+s378se,s378se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,5,38499,49,2,765,1,0,0,0,0,0
+s379se,s379se,ssid,Sapodilla 3,3-High,4-Sapodilla,1,5,31784,16,3,611,0,4,0,0,0,0
+s51de,s51de,ssid,Dangriga 3,3-High,2-Dangriga,2,3,909,1,0,11,0,0,0,0,0,0
+s52de,s52de,ssid,Dangriga 3,3-High,2-Dangriga,2,4,1026,3,0,34,13,0,0,0,0,0
+s53de,s53de,ssid,Dangriga 3,3-High,2-Dangriga,2,3,633,0,0,10,1,0,0,0,0,0
+s54de,s54de,ssid,Dangriga 3,3-High,2-Dangriga,2,4,744,1,0,11,1,0,0,0,0,0
+s55de,s55de,ssid,Dangriga 3,3-High,2-Dangriga,2,4,2824,1,0,51,2,0,0,0,0,0
+s56de,s56de,ssid,Dangriga 3,3-High,2-Dangriga,2,4,547,48,1,12,0,0,0,0,0,0
+s57de,s57de,ssid,Dangriga 3,3-High,2-Dangriga,2,3,2207,0,0,44,1,0,0,0,0,0
+s581be,s581be,ssid,Belize City 3,3-High,1-Belize City,2,3,67,0,0,483,1,0,0,0,0,0
+s582be,s582be,ssid,Belize City 3,3-High,1-Belize City,2,3,1557,1,0,116,0,0,0,0,0,0
+s583be,s583be,ssid,Belize City 3,3-High,1-Belize City,2,2,572,0,0,13,0,0,0,0,0,0
+s584be,s584be,ssid,Belize City 3,3-High,1-Belize City,2,4,595,0,1,10,1,0,0,0,0,0
+s585be,s585be,ssid,Belize City 3,3-High,1-Belize City,2,4,1408,3,0,46,2,0,0,0,0,0
+s586be,s586be,ssid,Belize City 3,3-High,1-Belize City,2,5,313,2,5,9,524,0,0,0,0,0
+s587be,s587be,ssid,Belize City 3,3-High,1-Belize City,2,6,2099,7,6,38,42,2,0,0,0,0
+s588be,s588be,ssid,Belize City 3,3-High,1-Belize City,2,4,2188,1,0,944,1,0,0,0,0,0
+s589be,s589be,ssid,Belize City 3,3-High,1-Belize City,2,4,21,1,0,4129,1,0,0,0,0,0
+s58de,s58de,ssid,Dangriga-3,3-High,2-Dangriga,2,4,689,0,0,23,1,0,1,0,0,0
+s590be,s590be,ssid,Belize City 3,3-High,1-Belize City,2,3,1632,0,0,36,2,0,0,0,0,0
+s59de,s59de,ssid,Dandgriga-3,3-High,2-Dangriga,2,3,3940,0,2,78,0,0,0,0,0,0
+s601bl,s601bl,ssid,Belize City 1,1-Low,1-Belize City,2,6,376,10,12,32,424,7,0,0,0,0
+s602bl,s602bl,ssid,Belize City 1,1-Low,1-Belize City,2,5,2354,3,2,36,6,0,0,0,0,0
+s603bl,s603bl,ssid,Belize City 1,1-Low,1-Belize City,2,3,1974,3,0,37,0,0,0,0,0,0
+s604bl,s604bl,ssid,Belize City 1,1-Low,1-Belize City,2,3,3226,0,3,49,0,0,0,0,0,0
+s605bl,s605bl,ssid,Belize City 1,1-Low,1-Belize City,2,5,1947,2,4,34,2,0,0,0,0,0
+s606bl,s606bl,ssid,Belize City 1,1-Low,1-Belize City,2,5,954,4,4,290,8,0,0,0,0,0
+s607bl,s607bl,ssid,Belize City 1,1-Low,1-Belize City,2,2,198,0,0,3,0,0,0,0,0,0
+s608bl,s608bl,ssid,Belize City 1,1-Low,1-Belize City,2,5,1927,9,5,53,11,0,0,0,0,0
+s609bl,s609bl,ssid,Belize City 1,1-Low,1-Belize City,2,5,1349,25,34,35,116,0,0,0,0,0
+s60de,s60de,ssid,Dangriga 3,3-High,2-Dangriga,2,6,1272,9,3,18,17,1,0,0,0,0
+s610bl,s610bl,ssid,Belize City 1,1-Low,1-Belize City,2,1,19,0,0,0,0,0,0,0,0,0
