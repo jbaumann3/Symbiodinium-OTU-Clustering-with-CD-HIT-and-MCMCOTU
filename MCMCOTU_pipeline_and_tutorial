@@ -1,0 +1,28 @@
+#MCMCOTU Tutorial. 
+#MCMCOTU is a package written by Mischa Matz to handle CLustered Illumina data exported from CD-HIT-OTU
+#This package is written in R and must be used R or R Studio. 
+
+
+##LOAD AND INSTALL packages you might need
+#source("http://bioconductor.org/biocLite.R") #To download DESeq package (you can comment these lines out, they only need to be run once ever)
+#biocLite( "MCMCglmm")
+
+library(MCMC.OTU)
+library(ggplot2)
+library(vegan)
+
+#optional 
+library(ggfortify) #need this to make PCA plots using autoplot
+library(ggpubr)
+library(cowplot)
+library(vegetarian)
+library(colorRamps)
+library(RColorBrewer)
+library(MASS)
+source(Rmisc) #contains the summarySE function- a real lifesaver
+library(betapart)
+library(reshape2)
+
+#READ IN YOUR DATA FILE
+#dat<-read.csv(file="cmb_OTU_100.nr2nd.clstr.sample_revised.csv", sep=",", header=TRUE, row.names=1)
+
