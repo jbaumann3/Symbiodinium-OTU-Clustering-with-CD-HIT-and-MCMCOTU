@@ -1,0 +1,39 @@
+##RAREFACTION CURVES FOR ALL SAMPLES##
+setwd("C:/Users/Justin/Desktop")
+
+library(vegan)
+source("http://www.jennajacobs.org/R/rarefaction.txt") #if this doesn't work I have uploaded the rarefaction.txt code here as well. This original code is not mine. Credit to Jenna Jacobs 
+
+#NOTE: this code takes a while to run. DO NOT BE ALARMED!
+
+
+
+#using final pooled data
+
+otu_raw=read.csv('cmb_OTU_100.nr2nd.clstr.sample_revised_pool_posR_sigP01_TRIM.csv')
+
+##ALL OTUS
+
+otu_raw_all<- otu_raw[9:18] 
+head(otu_raw_all)
+
+#Rarefaction curve for all OTUS 
+otu_raw_all.rare<-rarefaction(otu_raw_all, col=F, plot=T)
+###Y axis is actually the number of OTU
+###X axis is actually the number of reads
+
+###SSID
+otu_ssid=subset(otu_raw, species=='ssid')
+otu_ssid_all<- otu_ssid[9:18]
+otu_ssid_all.rare<-rarefaction(otu_ssid_all, col=F, plot=T)
+
+###SRAD
+otu_srad=subset(otu_raw, species=='srad')
+otu_srad_all<- otu_srad[9:18]
+otu_raw_srad.rare<-rarefaction(otu_srad_all, col=F, plot=T)
+
+###PSTR
+otu_pstr=subset(otu_raw, species=='pstr')
+otu_raw_pstr<- otu_pstr[9:18]
+otu_raw_pstr.rare<-rarefaction(otu_raw_pstr, col=F, plot=T)
+
